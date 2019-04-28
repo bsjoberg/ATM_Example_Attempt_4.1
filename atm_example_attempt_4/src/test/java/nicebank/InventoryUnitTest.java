@@ -26,11 +26,15 @@ public class InventoryUnitTest {
 		}
 	}
 
+	@Test
 	public void test_add_item_but_misspelled() {
 		Inventory inventory = new Inventory();
 		inventory.add("banana", 35);
 		
-		
-		// Catch Item not found exception
+		try {
+			inventory.priceOf("banan");
+		} catch (ItemNotFoundException e) {
+			Assert.assertNotNull(e);
+		}
 	}
 }

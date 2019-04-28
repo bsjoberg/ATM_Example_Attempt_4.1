@@ -5,15 +5,15 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class CheckoutSteps {
-	private int bananaPrice;
+	private Integer bananaPrice;
 
 	@Given("the price of a {string} is {int}c")
-	public void thePriceOfAIsC(String name, int price) {
+	public void thePriceOfAIsC(String name, Integer price) {
 	    bananaPrice = price;
 	}
 
 	@When("I checkout {int} {string}")
-	public void iCheckout(Integer itemCount, int itemName) {
+	public void iCheckout(Integer itemCount, String itemName) {
 	    Checkout checkout = new Checkout();
 	    checkout.add(itemCount, bananaPrice);
 	}

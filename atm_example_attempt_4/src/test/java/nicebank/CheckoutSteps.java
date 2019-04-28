@@ -24,5 +24,4 @@ public class CheckoutSteps {
 	public void theTotalPriceShouldBeC(Integer total) {
 	    Assert.assertEquals(total, checkout.total());
 	}
-
 }

@@ -1,14 +1,16 @@
 package nicebank;
 
-public class Inventory {
+import java.util.HashMap;
 
+public class Inventory {
+	HashMap<String, Integer> inventoryMap = new HashMap<String, Integer>();
+	
 	public void add(String name, Integer price) {
-		// TODO Auto-generated method stub
-		
+		inventoryMap.put(name, price);
 	}
 
-	public Integer priceOf(String string) throws ItemNotFoundException {
-		return 50;
+	public Integer priceOf(String itemName) throws ItemNotFoundException {
+		return inventoryMap.get(itemName);
 	}
 
 }

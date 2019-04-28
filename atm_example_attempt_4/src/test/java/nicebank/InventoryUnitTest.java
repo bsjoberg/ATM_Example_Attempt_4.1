@@ -25,6 +25,26 @@ public class InventoryUnitTest {
 			e.printStackTrace();
 		}
 	}
+	
+	@Test
+	public void test_add_two_different_items_with_different_prices()
+	{
+		Inventory inventory = new Inventory();
+		inventory.add("banana", 50);
+		inventory.add("apple", 23);
+		
+		try {
+			Assert.assertEquals(new Integer(50), inventory.priceOf("banana"));
+		} catch (ItemNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			Assert.assertEquals(new Integer(23), inventory.priceOf("apple"));
+		} catch (ItemNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
 
 	@Test
 	public void test_add_item_but_misspelled() {
@@ -36,5 +56,10 @@ public class InventoryUnitTest {
 		} catch (ItemNotFoundException e) {
 			Assert.assertNotNull(e);
 		}
+	}
+
+	@Test
+	public void test_update_price_of_existing_item() {
+		
 	}
 }

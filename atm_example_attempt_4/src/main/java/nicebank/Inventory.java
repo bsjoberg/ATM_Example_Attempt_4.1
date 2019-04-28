@@ -7,7 +7,7 @@ public class Inventory {
 		
 	}
 
-	public Integer priceOf(String string) {
+	public Integer priceOf(String string) throws ItemNotFoundException {
 		return 50;
 	}
 

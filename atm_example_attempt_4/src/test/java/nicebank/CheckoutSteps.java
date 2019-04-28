@@ -6,13 +6,12 @@ import cucumber.api.java.en.When;
 
 public class CheckoutSteps {
 	@Given("the price of a {string} is {int}c")
-	public void thePriceOfAIsC(String string, Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new cucumber.api.PendingException();
+	public void thePriceOfAIsC(String name, Integer price) {
+	    int bananaPrice = price;
 	}
 
 	@When("I checkout {int} {string}")
-	public void iCheckout(Integer int1, String string) {
+	public void iCheckout(Integer itemCount, String itemName) {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new cucumber.api.PendingException();
 	}

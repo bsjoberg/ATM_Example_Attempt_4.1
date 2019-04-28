@@ -7,20 +7,17 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class CheckoutSteps {
-	private Integer bananaPrice = 0;
-	private Checkout checkout;
-	private Inventory inventory;
+	private Inventory inventory = new Inventory();
+	private Checkout checkout = new Checkout(inventory);
 
 	@Given("the price of a {string} is {int}c")
 	public void thePriceOfAIsC(String name, Integer price) {
-	    inventory = new Inventory();
 	    inventory.add(name, price);
-	    checkout = new Checkout();
 	}
 
 	@When("I checkout {int} {string}")
 	public void iCheckout(Integer itemCount, String itemName) {
-	    checkout.add(itemCount, bananaPrice);
+	    checkout.add(itemCount, itemName);
 	}
 
 	@Then("the total price should be {int}c")

@@ -9,10 +9,12 @@ import cucumber.api.java.en.When;
 public class CheckoutSteps {
 	private Integer bananaPrice = 0;
 	private Checkout checkout;
+	private Inventory inventory;
 
 	@Given("the price of a {string} is {int}c")
 	public void thePriceOfAIsC(String name, Integer price) {
-	    bananaPrice = price;
+	    inventory = new Inventory();
+	    inventory.add(name, price);
 	    checkout = new Checkout();
 	}
 

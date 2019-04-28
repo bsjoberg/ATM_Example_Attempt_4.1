@@ -13,11 +13,11 @@ public class CheckoutSteps {
 	@Given("the price of a {string} is {int}c")
 	public void thePriceOfAIsC(String name, Integer price) {
 	    bananaPrice = price;
+	    checkout = new Checkout();
 	}
 
 	@When("I checkout {int} {string}")
 	public void iCheckout(Integer itemCount, String itemName) {
-	    checkout = new Checkout();
 	    checkout.add(itemCount, bananaPrice);
 	}
 

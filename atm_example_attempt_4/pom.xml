@@ -4,4 +4,26 @@
   <artifactId>atm_example_attempt_4</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>ATM Example Attempt 4</name>
+  <dependencies>
+  	<dependency>
+  		<groupId>io.cucumber</groupId>
+  		<artifactId>cucumber-junit</artifactId>
+  		<version>4.3.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>io.cucumber</groupId>
+  		<artifactId>cucumber-java</artifactId>
+  		<version>4.3.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>io.cucumber</groupId>
+  		<artifactId>cucumber-core</artifactId>
+  		<version>4.3.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>io.cucumber</groupId>
+  		<artifactId>gherkin</artifactId>
+  		<version>5.1.0</version>
+  	</dependency>
+  </dependencies>
 </project>

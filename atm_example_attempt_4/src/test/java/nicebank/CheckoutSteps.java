@@ -1,11 +1,14 @@
 package nicebank;
 
+import org.junit.Assert;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class CheckoutSteps {
-	private Integer bananaPrice;
+	private Integer bananaPrice = 0;
+	private Checkout checkout;
 
 	@Given("the price of a {string} is {int}c")
 	public void thePriceOfAIsC(String name, Integer price) {
@@ -14,14 +17,13 @@ public class CheckoutSteps {
 
 	@When("I checkout {int} {string}")
 	public void iCheckout(Integer itemCount, String itemName) {
-	    Checkout checkout = new Checkout();
+	    checkout = new Checkout();
 	    checkout.add(itemCount, bananaPrice);
 	}
 
 	@Then("the total price should be {int}c")
-	public void theTotalPriceShouldBeC(Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new cucumber.api.PendingException();
+	public void theTotalPriceShouldBeC(Integer total) {
+	    Assert.assertEquals(total, checkout.total());
 	}
 
 }

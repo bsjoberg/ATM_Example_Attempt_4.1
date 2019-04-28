@@ -7,4 +7,8 @@ public class Checkout {
 		
 	}
 
+	public Integer total() {
+		return 0;
+	}
+
 }

@@ -10,7 +10,9 @@ public class Inventory {
 	}
 
 	public Integer priceOf(String itemName) throws ItemNotFoundException {
-		return inventoryMap.get(itemName);
+		if (inventoryMap.containsKey(itemName))
+			return inventoryMap.get(itemName);
+		else
+			throw new ItemNotFoundException();
 	}
-
 }

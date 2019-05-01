@@ -17,8 +17,8 @@ public class TypeRegistryConfiguration implements TypeRegistryConfigurer {
 
 	public void configureTypeRegistry(TypeRegistry typeRegistry) {
 		typeRegistry.defineParameterType(new ParameterType<Money>(
-	            "digit",
-	            "[0-9]",
+	            "money",
+	            "^[^\\d]*([\\d]+)\\.([\\d][\\d])$",
 	            Money.class,
 	            (Transformer<Money>) (String s) -> Money.transform(s))
 	        );

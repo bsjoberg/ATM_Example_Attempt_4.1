@@ -9,19 +9,19 @@ import cucumber.api.java.en.When;
 public class Steps {
 
 	class Account {
-		private Double balance = 0.0;
+		private Money balance = new Money();
 		
-		public void deposit(Double amount) {
-			balance += amount;
+		public void deposit(Money amount) {
+			balance.add(amount);
 		}
 
-		public Double getBalance() {
+		public Money getBalance() {
 			return balance;
 		}
 	}
 	
-	@Given("I have deposited ${double} in my account")
-	public void iHaveDeposited$InMyAccount(Double amount) {
+	@Given("I have deposited ${money} in my account")
+	public void iHaveDeposited$InMyAccount(Money amount) {
 	    Account myAccount = new Account();
 	    myAccount.deposit(amount);
 	    

@@ -10,7 +10,7 @@ public class CheckoutSteps {
 	private Inventory inventory = new Inventory();
 	private Checkout checkout = new Checkout(inventory);
 
-	@Given("the price of an? {string} is {int}c")
+	@Given("the price of a(n) {string} is {int}c")
 	public void thePriceOfAIsC(String name, Integer price) {
 	    inventory.add(name, price);
 	}

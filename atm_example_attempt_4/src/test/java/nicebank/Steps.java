@@ -2,9 +2,11 @@ package nicebank;
 
 import org.junit.Assert;
 
+import cucumber.api.Transform;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import transforms.MoneyConverter;
 
 public class Steps {
 
@@ -20,12 +22,12 @@ public class Steps {
 		}
 	}
 	
-	@Given("^I have deposited \\$(\\d+)\\.(\\d+) in my account$")
-	public void iHaveDeposited$InMyAccount(Integer dollars, Integer cents) {
+	@Given("^I have deposited \\$(\\d+\\.\\d+) in my account$")
+	public void iHaveDeposited$InMyAccount(@Transform(MoneyConverter.class) Money amount) throws Throwable {
 	    Account myAccount = new Account();
-	    myAccount.deposit(new Money(dollars, cents));
+	    myAccount.deposit(amount);
 	    
-	    Assert.assertEquals("Incorrect Account balance", new Money(dollars, cents), myAccount.getBalance());
+	    Assert.assertEquals("Incorrect Account balance", amount, myAccount.getBalance());
 	}
 
 	@When("^I request \\$(\\d+)$")

@@ -6,43 +6,17 @@ import cucumber.api.Transform;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import support.KnowsTheDomain;
 import transforms.MoneyConverter;
 
 public class Steps {
-	KnowsMyAccount helper;
+	KnowsTheDomain helper;
 	
 	public Steps() {
-		helper = new KnowsMyAccount();
+		helper = new KnowsTheDomain();
 	}
 	
-	class KnowsMyAccount {
-		private Account myAccount;
-		private CashSlot cashSlot;
-		private Teller teller;
 	
-		public Account getMyAccount() {
-			if (myAccount == null)
-				myAccount = new Account();
-			
-			return myAccount;
-		}
-		
-        public CashSlot getCashSlot() {
-            if (cashSlot == null){
-              cashSlot = new CashSlot();
-            }
-        
-            return cashSlot;
-          }
-        
-        public Teller getTeller() {
-            if (teller == null) {
-              teller = new Teller(getCashSlot());
-            }
-
-            return teller;
-        }
-	}
 	
 	@Given("^I have deposited (\\$\\d+\\.\\d+) in my account$")
 	public void iHaveDeposited$InMyAccount(@Transform(MoneyConverter.class) Money amount) throws Throwable {

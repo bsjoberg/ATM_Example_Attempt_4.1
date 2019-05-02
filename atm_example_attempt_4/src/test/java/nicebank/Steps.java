@@ -17,6 +17,8 @@ public class Steps {
 	
 	class KnowsMyAccount {
 		private Account myAccount;
+		private CashSlot cashSlot;
+		private Teller teller;
 	
 		public Account getMyAccount() {
 			if (myAccount == null)
@@ -24,6 +26,22 @@ public class Steps {
 			
 			return myAccount;
 		}
+		
+        public CashSlot getCashSlot() {
+            if (cashSlot == null){
+              cashSlot = new CashSlot();
+            }
+        
+            return cashSlot;
+          }
+        
+        public Teller getTeller() {
+            if (teller == null) {
+              teller = new Teller(getCashSlot());
+            }
+
+            return teller;
+        }
 	}
 		
 	class Account {
@@ -41,10 +59,30 @@ public class Steps {
 	}
 	
 	class Teller {
-		public void withdrawFrom(Account account, int dollars) {
-			
+		private CashSlot cashSlot;
+		
+		public Teller (CashSlot cashSlot) {
+			this.cashSlot = cashSlot;
 		}
+		
+		public void withdrawFrom(Account account, int dollars) {
+			cashSlot.dispense(dollars);
+		}
+		
+		
 	}
+	
+    class CashSlot {
+    	private int contents;
+    	
+        public int getContents() {
+            return contents;
+        }
+        
+        public void dispense(int dollars){
+            contents = dollars;
+        }
+    }
 	
 	@Given("^I have deposited (\\$\\d+\\.\\d+) in my account$")
 	public void iHaveDeposited$InMyAccount(@Transform(MoneyConverter.class) Money amount) throws Throwable {
@@ -55,13 +93,13 @@ public class Steps {
 
 	@When("^I withdraw \\$(\\d+)$")
 	public void iWithdraw$(Integer amount) {
-	    Teller teller = new Teller();
-	    teller.withdrawFrom(helper.getMyAccount(), amount);
+	    
+	    helper.getTeller().withdrawFrom(helper.getMyAccount(), amount);
 	}
 
 	@Then("^\\$(\\d+) should be dispensed$")
-	public void $ShouldBeDispensed(Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new cucumber.api.PendingException();
+	public void $ShouldBeDispensed(int dollars) {
+		Assert.assertEquals("Incorrect amount dispensed -", 
+                dollars, helper.getCashSlot().getContents());
 	}
 }

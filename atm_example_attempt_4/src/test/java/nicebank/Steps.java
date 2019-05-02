@@ -20,21 +20,21 @@ public class Steps {
 		}
 	}
 	
-	@Given("I have deposited ${money} in my account")
-	public void iHaveDeposited$InMyAccount(Money amount) {
+	@Given("^I have deposited \\$(\\d+)\\.(\\d+) in my account$")
+	public void iHaveDeposited$InMyAccount(double amount) {
 	    Account myAccount = new Account();
-	    myAccount.deposit(amount);
+	    //myAccount.deposit(amount);
 	    
 	    Assert.assertEquals("Incorrect Account balance", amount, myAccount.getBalance());
 	}
 
-	@When("I request ${int}")
+	@When("^I request \\$(\\d+)$")
 	public void iRequest$(Integer int1) {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new cucumber.api.PendingException();
 	}
 
-	@Then("${int} should be dispensed")
+	@Then("^\\$(\\d+) should be dispensed$")
 	public void $ShouldBeDispensed(Integer int1) {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new cucumber.api.PendingException();

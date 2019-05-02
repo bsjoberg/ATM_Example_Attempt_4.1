@@ -10,17 +10,17 @@ public class CheckoutSteps {
 	private Inventory inventory = new Inventory();
 	private Checkout checkout = new Checkout(inventory);
 
-	@Given("the price of a(n) {string} is {int}c")
+	@Given("^the price of an? \"([^\"]*)\" is (\\d+)c$")
 	public void thePriceOfAIsC(String name, Integer price) {
 	    inventory.add(name, price);
 	}
 
-	@When("I checkout {int} {string}")
+	@When("^I checkout (\\d+) \"([^\"]*)\"$")
 	public void iCheckout(Integer itemCount, String itemName) {
 	    checkout.add(itemCount, itemName);
 	}
 
-	@Then("the total price should be {int}c")
+	@Then("^the total price should be (\\d+)c$")
 	public void theTotalPriceShouldBeC(Integer total) {
 	    Assert.assertEquals(total, checkout.total());
 	}

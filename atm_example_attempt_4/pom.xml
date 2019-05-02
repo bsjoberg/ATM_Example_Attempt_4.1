@@ -6,24 +6,24 @@
   <name>ATM Example Attempt 4</name>
   <dependencies>
   	<dependency>
-  		<groupId>io.cucumber</groupId>
+  		<groupId>info.cukes</groupId>
   		<artifactId>cucumber-junit</artifactId>
-  		<version>4.3.0</version>
+  		<version>1.2.5</version>
   	</dependency>
   	<dependency>
-  		<groupId>io.cucumber</groupId>
+  		<groupId>info.cukes</groupId>
   		<artifactId>cucumber-java</artifactId>
-  		<version>4.3.0</version>
+  		<version>1.2.5</version>
   	</dependency>
   	<dependency>
-  		<groupId>io.cucumber</groupId>
+  		<groupId>info.cukes</groupId>
   		<artifactId>cucumber-core</artifactId>
-  		<version>4.3.0</version>
+  		<version>1.2.5</version>
   	</dependency>
   	<dependency>
-  		<groupId>io.cucumber</groupId>
+  		<groupId>info.cukes</groupId>
   		<artifactId>gherkin</artifactId>
-  		<version>5.1.0</version>
+  		<version>2.12.2</version>
   	</dependency>
   	<dependency>
   		<groupId>org.mockito</groupId>

@@ -9,7 +9,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = { "pretty", "html:out" }, 
 				features = "src/test/resources", 
-				glue = { "nicebank"}, 
+				glue = { "nicebank" }, 
 				snippets = SnippetType.CAMELCASE)
 
 public class RunCukesTest {

@@ -26,11 +26,15 @@ public final class Money {
     }
     
     public Money(String amount) {
-    	this();
-        transform(amount);
+        Pattern pattern = Pattern.compile("^[^\\d]*([\\d]+)\\.([\\d][\\d])$");
+        Matcher matcher = pattern.matcher(amount);
+
+        matcher.find();
+        this.dollars = Integer.parseInt(matcher.group(1));
+        this.cents = Integer.parseInt(matcher.group(2));
     }
     
-    public static Money transform(String amount) {
+    public static final Money transform(String amount) {
     	Pattern pattern = Pattern.compile("^[^\\d]*([\\d]+)\\.([\\d][\\d])$");
         Matcher matcher = pattern.matcher(amount);
 
@@ -38,7 +42,7 @@ public final class Money {
         int dollars = Integer.parseInt(matcher.group(1));
         int cents = Integer.parseInt(matcher.group(2));
         
-        return new Money(dollars, cents);
+        return new Money (dollars, cents);
     }
 
     public int dollars() {

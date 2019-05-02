@@ -43,22 +43,6 @@ public class Steps {
             return teller;
         }
 	}
-		
-
-	
-	class Teller {
-		private CashSlot cashSlot;
-		
-		public Teller (CashSlot cashSlot) {
-			this.cashSlot = cashSlot;
-		}
-		
-		public void withdrawFrom(Account account, int dollars) {
-			cashSlot.dispense(dollars);
-		}
-		
-		
-	}
 	
 	@Given("^I have deposited (\\$\\d+\\.\\d+) in my account$")
 	public void iHaveDeposited$InMyAccount(@Transform(MoneyConverter.class) Money amount) throws Throwable {

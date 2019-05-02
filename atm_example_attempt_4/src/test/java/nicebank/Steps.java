@@ -72,18 +72,6 @@ public class Steps {
 		
 	}
 	
-    class CashSlot {
-    	private int contents;
-    	
-        public int getContents() {
-            return contents;
-        }
-        
-        public void dispense(int dollars){
-            contents = dollars;
-        }
-    }
-	
 	@Given("^I have deposited (\\$\\d+\\.\\d+) in my account$")
 	public void iHaveDeposited$InMyAccount(@Transform(MoneyConverter.class) Money amount) throws Throwable {
 	    helper.getMyAccount().deposit(amount);

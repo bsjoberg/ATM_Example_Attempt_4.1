@@ -25,7 +25,7 @@ public class AcountUnitTest {
 	}
 		
 	@Test
-	public void test_should_be_able_to_add_funds_using_integer() {
+	public void test_should_not_be_able_to_add_a_negative_amount() {
 		
 	}
 }

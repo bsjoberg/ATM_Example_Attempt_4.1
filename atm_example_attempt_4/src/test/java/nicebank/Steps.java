@@ -12,7 +12,7 @@ public class Steps {
 		private Money balance = new Money();
 		
 		public void deposit(Money amount) {
-			balance.add(amount);
+			balance = balance.add(amount);
 		}
 
 		public Money getBalance() {

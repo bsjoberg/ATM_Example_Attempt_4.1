@@ -21,11 +21,11 @@ public class Steps {
 	}
 	
 	@Given("^I have deposited \\$(\\d+)\\.(\\d+) in my account$")
-	public void iHaveDeposited$InMyAccount(double amount) {
+	public void iHaveDeposited$InMyAccount(Integer dollars, Integer cents) {
 	    Account myAccount = new Account();
-	    //myAccount.deposit(amount);
+	    myAccount.deposit(new Money(dollars, cents));
 	    
-	    Assert.assertEquals("Incorrect Account balance", amount, myAccount.getBalance());
+	    Assert.assertEquals("Incorrect Account balance", new Money(dollars, cents), myAccount.getBalance());
 	}
 
 	@When("^I request \\$(\\d+)$")

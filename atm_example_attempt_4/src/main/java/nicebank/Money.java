@@ -33,17 +33,6 @@ public final class Money {
         this.dollars = Integer.parseInt(matcher.group(1));
         this.cents = Integer.parseInt(matcher.group(2));
     }
-    
-    public static final Money transform(String amount) {
-    	Pattern pattern = Pattern.compile("^[^\\d]*([\\d]+)\\.([\\d][\\d])$");
-        Matcher matcher = pattern.matcher(amount);
-
-        matcher.find();
-        int dollars = Integer.parseInt(matcher.group(1));
-        int cents = Integer.parseInt(matcher.group(2));
-        
-        return new Money (dollars, cents);
-    }
 
     public int dollars() {
         return dollars;

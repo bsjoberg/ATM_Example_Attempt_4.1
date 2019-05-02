@@ -17,8 +17,7 @@ public class MoneyTest {
 
 	@Test
 	public void test_parse_string_to_Money() {
-		String moneyAmount = "$100.10";
-		Money money = Money.transform(moneyAmount);
+		Money money = new Money("$100.10");
 		Assert.assertEquals(100, money.dollars());
 		Assert.assertEquals(10, money.cents());
 	}

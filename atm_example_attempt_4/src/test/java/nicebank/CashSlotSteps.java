@@ -2,6 +2,7 @@ package nicebank;
 
 import org.junit.Assert;
 
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 import support.KnowsTheDomain;
 
@@ -19,4 +20,9 @@ public class CashSlotSteps {
                 dollars, helper.getCashSlot().getContents());
 	}
 	
+	@Then("^I should be told the reason money was not dispensed$")
+	public void iShouldBeToldTheReasonMoneyWasNotDispensed() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
+	}
 }

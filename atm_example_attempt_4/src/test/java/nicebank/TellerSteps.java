@@ -12,7 +12,10 @@ public class TellerSteps {
 	
 	@When("^I withdraw \\$(\\d+)$")
 	public void iWithdraw$(Integer amount) {
-	    
-	    helper.getTeller().withdrawFrom(helper.getMyAccount(), amount);
+	    try {
+			helper.getTeller().withdrawFrom(helper.getMyAccount(), amount);
+		} catch (InsufficientFundsException e) {
+			e.printStackTrace();
+		}
 	}
 }

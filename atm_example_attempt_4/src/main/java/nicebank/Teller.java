@@ -3,22 +3,18 @@ package nicebank;
 
 public class Teller {
 	private CashSlot cashSlot;
-	boolean sufficientFunds = false;
 	
 	public Teller (CashSlot cashSlot) {
 		this.cashSlot = cashSlot;
 	}
 	
-	public boolean withdrawFrom(Account account, int dollars) {
-		if (account.getBalance().dollars() >= dollars) {
-			sufficientFunds = true;
+	public void withdrawFrom(Account account, int dollars) throws InsufficientFundsException {
+		try {
+			account.withdraw(dollars);
 			cashSlot.dispense(dollars);
-		}
-		else {
-			sufficientFunds = false;
+		} catch (InsufficientFundsException ife) {
 			cashSlot.dispense(0);
 		}
-		return sufficientFunds;
 	}
 	
 	

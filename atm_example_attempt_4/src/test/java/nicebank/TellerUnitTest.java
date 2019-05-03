@@ -23,7 +23,11 @@ public class TellerUnitTest {
 		account.deposit(new Money(75, 0));
 		CashSlot cashSlot = new CashSlot();
 		Teller teller = new Teller(cashSlot);
-		teller.withdrawFrom(account, 100);
+		try {
+			teller.withdrawFrom(account, 100);
+		} catch (InsufficientFundsException e) {
+			e.printStackTrace();
+		}
 		
 		Assert.assertEquals("Incorrect Balance", 0, cashSlot.getContents());
 	}

@@ -9,5 +9,5 @@ Feature: Cash withdrawal
 		Given I have deposited $50.00 in my account
 		When I withdraw $100
 		Then $0 should be dispensed
-		And I should be told the reason money was not dispensed
 		And the balance of my account should be $50.00
+		And I should be told the reason money was not dispensed

@@ -2,7 +2,6 @@ package nicebank;
 
 import org.junit.Assert;
 
-import cucumber.api.PendingException;
 import cucumber.api.Transform;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -26,7 +25,6 @@ public class AccountSteps {
 
 	@Then("^the balance of my account should be \\$(\\d+)\\.(\\d+)$")
 	public void theBalanceOfMyAccountShouldBe$(int dollars, int cents) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	    Assert.assertEquals("Incorrect Account Balance", new Money(dollars, cents), helper.getMyAccount().getBalance());
 	}
 }

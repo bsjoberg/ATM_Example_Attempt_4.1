@@ -10,7 +10,7 @@ public class Teller {
 	
 	public void withdrawFrom(Account account, int dollars) throws InsufficientFundsException {
 		try {
-			account.withdraw(dollars);
+			account.debit(dollars);
 			cashSlot.dispense(dollars);
 		} catch (InsufficientFundsException ife) {
 			cashSlot.dispense(0);

@@ -3,7 +3,7 @@ package nicebank;
 public class Account {
 	private Money balance = new Money();
 	
-	public void deposit(Money amount) {
+	public void credit(Money amount) {
 		balance = balance.add(amount);
 	}
 
@@ -11,7 +11,7 @@ public class Account {
 		return balance;
 	}
 
-	public void withdraw(int dollars) throws InsufficientFundsException {
+	public void debit(int dollars) throws InsufficientFundsException {
 		if (getBalance().dollars() >= dollars)
 			balance = balance.minus(new Money(dollars, 0));
 		else

@@ -20,7 +20,7 @@ public class TellerUnitTest {
 
 	@Test
 	public void test_should_not_be_able_to_withdraw_more_than_available() {
-		account.deposit(new Money(75, 0));
+		account.credit(new Money(75, 0));
 		CashSlot cashSlot = new CashSlot();
 		Teller teller = new Teller(cashSlot);
 		try {

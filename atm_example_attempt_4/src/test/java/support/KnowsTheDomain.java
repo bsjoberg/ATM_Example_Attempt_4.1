@@ -1,6 +1,7 @@
 package support;
 
 import nicebank.Account;
+import nicebank.AutomatedTeller;
 import nicebank.CashSlot;
 import nicebank.Teller;
 
@@ -26,7 +27,7 @@ public class KnowsTheDomain {
     
     public Teller getTeller() {
         if (teller == null) {
-          teller = new Teller(getCashSlot());
+          teller = new AutomatedTeller(getCashSlot());
         }
 
         return teller;

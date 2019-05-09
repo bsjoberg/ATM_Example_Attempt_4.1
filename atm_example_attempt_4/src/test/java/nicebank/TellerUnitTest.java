@@ -22,7 +22,7 @@ public class TellerUnitTest {
 	public void test_should_not_be_able_to_withdraw_more_than_available() {
 		account.credit(new Money(75, 0));
 		CashSlot cashSlot = new CashSlot();
-		Teller teller = new Teller(cashSlot);
+		Teller teller = new AutomatedTeller(cashSlot);
 		try {
 			teller.withdrawFrom(account, 100);
 		} catch (InsufficientFundsException e) {

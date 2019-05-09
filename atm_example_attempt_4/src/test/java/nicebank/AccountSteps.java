@@ -19,8 +19,6 @@ public class AccountSteps {
 	@Given("^I have deposited (\\$\\d+\\.\\d+) in my account$")
 	public void iHaveDeposited$InMyAccount(@Transform(MoneyConverter.class) Money amount) throws Throwable {
 		helper.getMyAccount().credit(amount);
-
-		Assert.assertEquals("Incorrect Account balance", amount, helper.getMyAccount().getBalance());
 	}
 
 	@Then("^the balance of my account should be \\$(\\d+)\\.(\\d+)$")

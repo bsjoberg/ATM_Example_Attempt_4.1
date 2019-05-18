@@ -17,7 +17,12 @@ import javax.servlet.http.HttpServletResponse;
  
 public class AtmServlet extends HttpServlet
 {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -6136363346177332739L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
                                                 throws ServletException, IOException
     {
         response.setContentType("text/html");

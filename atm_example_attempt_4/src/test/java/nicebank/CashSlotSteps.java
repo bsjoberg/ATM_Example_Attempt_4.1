@@ -2,7 +2,6 @@ package nicebank;
 
 import org.junit.Assert;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 import support.KnowsTheDomain;
 

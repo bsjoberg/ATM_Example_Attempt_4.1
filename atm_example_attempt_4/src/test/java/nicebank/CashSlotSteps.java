@@ -23,6 +23,6 @@ public class CashSlotSteps {
 	@Then("^I should be told the reason money was not dispensed$")
 	public void iShouldBeToldTheReasonMoneyWasNotDispensed() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	    Assert.assertEquals("Insufficient Funds", helper.getTeller().notDispensedReason());
 	}
 }

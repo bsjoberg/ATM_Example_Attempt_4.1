@@ -15,6 +15,6 @@ public class Account {
 		if (getBalance().dollars() >= dollars)
 			balance = balance.minus(new Money(dollars, 0));
 		else
-			throw new InsufficientFundsException();
+			throw new InsufficientFundsException("Insufficient Funds");
 	}
 }

@@ -1,10 +1,11 @@
 package nicebank;
 
 public class Account {
-	private Money balance = new Money();
+	private Money balance = new Money(0, 0);
 	
 	public void credit(Money amount) {
-		balance = balance.add(amount);
+		if (amount.dollars() >= 0 && amount.cents() >= 0)
+			balance = balance.add(amount);
 	}
 
 	public Money getBalance() {

@@ -26,7 +26,8 @@ public class AcountUnitTest {
 		
 	@Test
 	public void test_should_not_be_able_to_add_a_negative_amount() {
-		
+		account.credit(new Money(-100, 0));
+		Assert.assertEquals("Incorrect Balance", new Money (0, 0), account.getBalance());
 	}
 	
 	@Test

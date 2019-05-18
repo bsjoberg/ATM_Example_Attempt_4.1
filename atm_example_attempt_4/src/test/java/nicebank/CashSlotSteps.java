@@ -19,9 +19,8 @@ public class CashSlotSteps {
                 dollars, helper.getCashSlot().getContents());
 	}
 	
-	@Then("^I should be told the reason money was not dispensed$")
-	public void iShouldBeToldTheReasonMoneyWasNotDispensed() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    Assert.assertEquals("Insufficient Funds", helper.getTeller().notDispensedReason());
+	@Then("^I should be told that \"([^\"]*)\" was the reason$")
+	public void iShouldBeToldThatWasTheReason(String reason) throws Throwable {
+	    Assert.assertEquals(reason, helper.getTeller().notDispensedReason());
 	}
 }

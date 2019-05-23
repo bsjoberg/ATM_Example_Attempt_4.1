@@ -11,7 +11,7 @@ public class TellerUnitTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		account = new Account();
+		account = new Account(0);
 	}
 
 	@After

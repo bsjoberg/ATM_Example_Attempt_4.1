@@ -12,7 +12,7 @@ public class KnowsTheDomain {
 
 	public Account getMyAccount() {
 		if (myAccount == null)
-			myAccount = new Account();
+			myAccount = new Account(0);
 		
 		return myAccount;
 	}

@@ -3,6 +3,10 @@ package nicebank;
 public class Account {
 	private Money balance = new Money(0, 0);
 	
+	public Account(int i) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void credit(Money amount) {
 		if (amount.dollars() >= 0 && amount.cents() >= 0)
 			balance = balance.add(amount);
@@ -17,5 +21,9 @@ public class Account {
 			balance = balance.minus(new Money(dollars, 0));
 		else
 			throw new InsufficientFundsException("Insufficient Funds");
+	}
+
+	public int accountNumber() {
+		return 1234567890;
 	}
 }

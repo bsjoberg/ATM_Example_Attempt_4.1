@@ -22,10 +22,12 @@ public class AccountSteps {
 		helper.getMyAccount().credit(amount);
 	}
 	
-	@Given("^I am an authenticated account owner with a \\$(\\d+)\\.(\\d+) balance$")
-	public void iAmAnAuthenticatedAccountOwnerWithA$Balance(int arg1, int arg2) throws Throwable {
+	@Given("^I am an authenticated account owner with a (\\$\\d+\\.\\d+) balance$")
+	public void iAmAnAuthenticatedAccountOwnerWithA$Balance(@Transform(MoneyConverter.class) Money amount) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	    throw new PendingException();
+	    
+	    // User should enter their account and pin number
 	}
 
 	@Then("^the balance of my account should be \\$(\\d+)\\.(\\d+)$")

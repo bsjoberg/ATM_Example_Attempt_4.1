@@ -43,11 +43,13 @@ public class AcountUnitTest {
 		Assert.assertEquals("Incorrect Balance", new Money(100,0), account.getBalance());
 	}
 
-	@Test public void test_account_should_be_4_numbers_long() {
+	@Test 
+	public void test_account_should_be_4_numbers_long() {
 		Assert.assertEquals(1234, account.accountNumber());
 	}
 	
-	@Test public void test_account_has_a_PIN() {
+	@Test 
+	public void test_account_has_a_PIN() {
 		account.setPIN(1234);
 		Assert.assertEquals(1234, account.PIN());
 	}

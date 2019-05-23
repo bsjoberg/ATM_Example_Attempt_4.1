@@ -2,6 +2,7 @@ package nicebank;
 
 import org.junit.Assert;
 
+import cucumber.api.PendingException;
 import cucumber.api.Transform;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -19,6 +20,12 @@ public class AccountSteps {
 	@Given("^I have deposited (\\$\\d+\\.\\d+) in my account$")
 	public void iHaveDeposited$InMyAccount(@Transform(MoneyConverter.class) Money amount) throws Throwable {
 		helper.getMyAccount().credit(amount);
+	}
+	
+	@Given("^I am an authenticated account owner with a \\$(\\d+)\\.(\\d+) balance$")
+	public void iAmAnAuthenticatedAccountOwnerWithA$Balance(int arg1, int arg2) throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new PendingException();
 	}
 
 	@Then("^the balance of my account should be \\$(\\d+)\\.(\\d+)$")

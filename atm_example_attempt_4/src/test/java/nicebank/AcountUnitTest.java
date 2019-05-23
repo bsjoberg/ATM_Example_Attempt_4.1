@@ -10,7 +10,7 @@ public class AcountUnitTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		account = new Account(0);
+		account = new Account(1234);
 	}
 
 	@After
@@ -43,10 +43,19 @@ public class AcountUnitTest {
 		Assert.assertEquals("Incorrect Balance", new Money(100,0), account.getBalance());
 	}
 
-	@Test public void test_account_should_be_10_numbers_long() {
-		account = new Account(1234567890);
-		Assert.assertEquals(1234567890, account.accountNumber());
+	@Test public void test_account_should_be_4_numbers_long() {
+		Assert.assertEquals(1234, account.accountNumber());
 	}
-
+	
+	@Test public void test_account_has_a_PIN() {
+		account.setPIN(1234);
+		Assert.assertEquals(1234, account.PIN());
+	}
+	
+	@Test 
+	public void test_change_PIN() {
+		account.setPIN(2345);
+		Assert.assertEquals(2345, account.PIN());
+	}
 }
 

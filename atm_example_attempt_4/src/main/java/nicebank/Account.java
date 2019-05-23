@@ -2,9 +2,11 @@ package nicebank;
 
 public class Account {
 	private Money balance = new Money(0, 0);
+	private int accountNumber = 0;
+	private int PIN = 0;
 	
-	public Account(int i) {
-		// TODO Auto-generated constructor stub
+	public Account(int accountNumber) {
+		this.accountNumber = accountNumber;
 	}
 
 	public void credit(Money amount) {
@@ -24,6 +26,14 @@ public class Account {
 	}
 
 	public int accountNumber() {
-		return 1234567890;
+		return accountNumber;
+	}
+
+	public int PIN() {
+		return PIN;
+	}
+
+	public void setPIN(int PIN) {
+		this.PIN = PIN;
 	}
 }

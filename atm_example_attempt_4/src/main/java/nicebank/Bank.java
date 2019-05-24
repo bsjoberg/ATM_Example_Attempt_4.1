@@ -17,8 +17,9 @@ public class Bank {
 	public Account getAccount(int accountNumber) {
 		Iterator<Account> iter = accounts.listIterator();
 		while (iter.hasNext()) {
-			if (iter.next().accountNumber() == accountNumber)
-				return iter.next();
+			Account account = iter.next();
+			if (account.accountNumber() == accountNumber)
+;				return account;
 		}
 		return null;
 	}

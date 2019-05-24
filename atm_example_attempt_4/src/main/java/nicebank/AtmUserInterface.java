@@ -17,7 +17,7 @@ public class AtmUserInterface implements Teller {
 	@Override
 	public void withdrawFrom(Account account, int dollars) throws InsufficientFundsException {
 		try {
-			webDriver.get("http://localhost:9988");
+			webDriver.get("http://localhost:" + 8887);
 			webDriver.findElement(By.id("Amount")).sendKeys(String.valueOf(dollars));
 			webDriver.findElement(By.id("Withdraw")).click();
 		} finally {

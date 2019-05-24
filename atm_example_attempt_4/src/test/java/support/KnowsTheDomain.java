@@ -2,14 +2,23 @@ package support;
 
 import nicebank.Account;
 import nicebank.AutomatedTeller;
+import nicebank.Bank;
 import nicebank.CashSlot;
 import nicebank.Teller;
 
 public class KnowsTheDomain {
+	private Bank myBank;
 	private Account myAccount;
 	private CashSlot cashSlot;
 	private Teller teller;
-
+	
+	public Bank getMyBank() {
+		if (myBank == null)
+			myBank = new Bank();
+		
+		return myBank;
+	}
+	
 	public Account getMyAccount() {
 		if (myAccount == null)
 			myAccount = new Account(1234);

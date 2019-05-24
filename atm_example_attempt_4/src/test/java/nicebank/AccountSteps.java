@@ -23,11 +23,13 @@ public class AccountSteps {
 	}
 	
 	@Given("^I am an authenticated account owner with a (\\$\\d+\\.\\d+) balance$")
-	public void iAmAnAuthenticatedAccountOwnerWithA$Balance(@Transform(MoneyConverter.class) Money amount) throws Throwable {
+	public void iAmAnAccountOwnerWithA$Balance(@Transform(MoneyConverter.class) Money amount) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
 	    
-	    // User should enter their account and pin number
+	    // User should enter their account
+	    helper.getMyBank().addAccount(new Account(2345));
+	    helper.getMyBank().getAccount(2345).credit(amount);
+	    Assert.assertEquals(amount, helper.getMyBank().getAccount(2345).getBalance());
 	}
 
 	@Then("^the balance of my account should be \\$(\\d+)\\.(\\d+)$")

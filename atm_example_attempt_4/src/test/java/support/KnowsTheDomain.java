@@ -1,8 +1,10 @@
 package support;
 
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
+
 import nicebank.Account;
 import nicebank.AtmUserInterface;
-import nicebank.AutomatedTeller;
 import nicebank.Bank;
 import nicebank.CashSlot;
 import nicebank.Teller;
@@ -12,6 +14,7 @@ public class KnowsTheDomain {
 	private Account myAccount;
 	private CashSlot cashSlot;
 	private Teller teller;
+	private EventFiringWebDriver webDriver;
 	
 	public Bank getMyBank() {
 		if (myBank == null)
@@ -42,4 +45,12 @@ public class KnowsTheDomain {
 
         return teller;
     }
+
+	public EventFiringWebDriver getWebDriver() {
+		if (webDriver == null) {
+			System.setProperty("webdriver.chrome.driver", "C:\\Users\\brian\\Documents\\chromedriver_win32\\chromedriver.exe");
+			webDriver = new EventFiringWebDriver(new ChromeDriver());
+		}
+		return webDriver;
+	}
 }

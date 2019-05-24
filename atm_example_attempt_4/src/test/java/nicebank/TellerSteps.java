@@ -1,6 +1,5 @@
 package nicebank;
 
-import cucumber.api.PendingException;
 import cucumber.api.java.en.When;
 import support.KnowsTheDomain;
 
@@ -20,9 +19,8 @@ public class TellerSteps {
 		}
 	}
 	
-	@When("^I check my balance$")
-	public void iCheckMyBalance() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new PendingException();
+	@When("^I check my balance for account (\\d+)$")
+	public void iCheckMyBalanceForAccount(int accountNumber) throws Throwable {
+	    helper.getMyBank().getAccount(accountNumber).getBalance();
 	}
 }

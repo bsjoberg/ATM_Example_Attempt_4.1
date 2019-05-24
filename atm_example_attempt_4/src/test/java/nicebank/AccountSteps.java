@@ -21,19 +21,24 @@ public class AccountSteps {
 	public void iHaveDeposited$InMyAccount(@Transform(MoneyConverter.class) Money amount) throws Throwable {
 		helper.getMyAccount().credit(amount);
 	}
-	
-	@Given("^I am an authenticated account owner with a (\\$\\d+\\.\\d+) balance$")
-	public void iAmAnAccountOwnerWithA$Balance(@Transform(MoneyConverter.class) Money amount) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    
-	    // User should enter their account
-	    helper.getMyBank().addAccount(new Account(2345));
-	    helper.getMyBank().getAccount(2345).credit(amount);
-	    Assert.assertEquals(amount, helper.getMyBank().getAccount(2345).getBalance());
+
+	@Given("^I am account owner (\\d+) with a (\\$\\d+\\.\\d+) balance$")
+	public void iAmAnAccountOwnerWithA$Balance(int accountNumber, @Transform(MoneyConverter.class) Money amount)
+			throws Throwable {
+		// User should enter their account
+		helper.getMyBank().addAccount(new Account(accountNumber));
+		helper.getMyBank().getAccount(2345).credit(amount);
 	}
 
 	@Then("^the balance of my account should be \\$(\\d+)\\.(\\d+)$")
 	public void theBalanceOfMyAccountShouldBe$(int dollars, int cents) throws Throwable {
-	    Assert.assertEquals("Incorrect Account Balance", new Money(dollars, cents), helper.getMyAccount().getBalance());
+		Assert.assertEquals("Incorrect Account Balance", new Money(dollars, cents),
+				helper.getMyAccount().getBalance());
+	}
+
+	@Then("^the balance of account (\\d+) should be \\$(\\d+)\\.(\\d+)$")
+	public void theBalanceOfAccountShouldBe$(int accountNumber, int dollars, int cents) throws Throwable {
+		Assert.assertEquals("Incorrect Account Balance", new Money(dollars, cents),
+				helper.getMyBank().getAccount(accountNumber).getBalance());
 	}
 }

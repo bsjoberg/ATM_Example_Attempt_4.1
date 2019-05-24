@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
+import hooks.ServerHooks;
+
 public class AtmUserInterface implements Teller {
 	private final EventFiringWebDriver webDriver;
 	private String reasonForNoWithdrawal = "";
@@ -17,9 +19,9 @@ public class AtmUserInterface implements Teller {
 	@Override
 	public void withdrawFrom(Account account, int dollars) throws InsufficientFundsException {
 		try {
-			webDriver.get("http://localhost:" + 8887);
-			webDriver.findElement(By.id("Amount")).sendKeys(String.valueOf(dollars));
-			webDriver.findElement(By.id("Withdraw")).click();
+			webDriver.get("http://localhost:" + ServerHooks.PORT);
+			webDriver.findElement(By.id("amount")).sendKeys(String.valueOf(dollars));
+			webDriver.findElement(By.id("withdraw")).click();
 		} finally {
 			webDriver.close();
 		}

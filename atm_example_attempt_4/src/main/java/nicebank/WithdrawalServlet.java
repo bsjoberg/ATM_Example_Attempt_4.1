@@ -9,30 +9,26 @@
 package nicebank;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
  
-public class AtmServlet extends HttpServlet
+public class WithdrawalServlet extends HttpServlet
 {
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = -6136363346177332739L;
+	private static final long serialVersionUID = -462283587125978632L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
                                                 throws ServletException, IOException
     {
         response.setContentType("text/html");
         response.setStatus(HttpServletResponse.SC_OK);
         response.getWriter().println(
-             "<html><head><title>ATM</title></head>" +
-             "<body><form action=\"/withdraw\" method=\"post\">" +
-             "<label for=\"amount\">Amount</label>" +
-             "<input type=\"text\" id=\"amount\" name=\"amount\">" +
-             "<button type=\"submit\" id=\"withdraw\">Withdraw</button>" +
-             "</form></body></html>");
+             "<html><head><title>Nice Bank ATM</title></head>" +
+              "<body>I don't know how to withdraw money yet, sorry</body>" +
+              "</html>");
     }
 }

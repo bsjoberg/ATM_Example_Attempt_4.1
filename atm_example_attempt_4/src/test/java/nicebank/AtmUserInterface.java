@@ -16,7 +16,6 @@ public class AtmUserInterface implements Teller {
 		this.webDriver = new EventFiringWebDriver(new ChromeDriver());
 	}
 
-	@Override
 	public void withdrawFrom(Account account, int dollars) throws InsufficientFundsException {
 		try {
 			webDriver.get("http://localhost:" + ServerHooks.PORT);
@@ -28,7 +27,6 @@ public class AtmUserInterface implements Teller {
 		}
 	}
 
-	@Override
 	public String notDispensedReason() {
 		return reasonForNoWithdrawal;
 	}

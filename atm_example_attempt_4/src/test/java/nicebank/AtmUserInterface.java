@@ -10,7 +10,7 @@ public class AtmUserInterface implements Teller {
 	private final EventFiringWebDriver webDriver;
 	private String reasonForNoWithdrawal = "";
 
-	public AtmUserInterface() {
+	public AtmUserInterface(CashSlot cashSlot) {
 		System.setProperty("webdriver.chrome.driver",
 				"C:\\Users\\brian\\Documents\\chromedriver_win32\\chromedriver.exe");
 		this.webDriver = new EventFiringWebDriver(new ChromeDriver());

@@ -34,7 +34,7 @@ public class AcountUnitTest {
 	public void test_should_be_able_to_withdraw_when_sufficient_funds_available() {
 		account.credit(new Money(200,0));
 		try {
-			account.debit(100);
+			account.withdraw(100);
 		} catch (InsufficientFundsException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

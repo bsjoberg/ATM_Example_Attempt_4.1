@@ -18,7 +18,7 @@ public class Account {
 		return balance;
 	}
 
-	public void debit(int dollars) throws InsufficientFundsException {
+	public void withdraw(int dollars) throws InsufficientFundsException {
 		if (getBalance().dollars() >= dollars)
 			balance = balance.minus(new Money(dollars, 0));
 		else

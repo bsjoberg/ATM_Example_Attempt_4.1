@@ -11,11 +11,12 @@ public class AutomatedTeller implements Teller {
 	
 	public void withdrawFrom(Account account, int dollars) throws InsufficientFundsException {
 		try {
-			account.debit(dollars);
+			account.withdraw(dollars);
 			cashSlot.dispense(dollars);
 		} catch (InsufficientFundsException ife) {
 			cashSlot.dispense(0);
 			reasonForNoWithdrawal = ife.getReason();
+			throw ife;
 		}
 	}
 	

@@ -40,7 +40,7 @@ public class KnowsTheDomain {
     
     public Teller getTeller() {
         if (teller == null) {
-          teller = new AtmUserInterface();
+          teller = new AtmUserInterface(getCashSlot());
         }
 
         return teller;

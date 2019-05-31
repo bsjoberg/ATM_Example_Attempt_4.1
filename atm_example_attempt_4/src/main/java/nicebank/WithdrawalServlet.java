@@ -29,6 +29,10 @@ public class WithdrawalServlet extends HttpServlet {
 		this.account = account;
 	}
 
+	public String notDispensedReason() {
+		return reasonForNoWithdrawal;
+	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		Teller teller = new AutomatedTeller(cashSlot);

@@ -1,6 +1,7 @@
 package support;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import nicebank.Account;
@@ -48,8 +49,8 @@ public class KnowsTheDomain {
 
 	public EventFiringWebDriver getWebDriver() {
 		if (webDriver == null) {
-			System.setProperty("webdriver.chrome.driver", "C:\\Users\\brian\\Documents\\chromedriver_win32\\chromedriver.exe");
-			webDriver = new EventFiringWebDriver(new ChromeDriver());
+			System.setProperty("webdriver.firefox.driver", "C:\\Users\\brian\\Downloads\\geckodriver-v0.26.0-win64\\geckodriver.exe");
+			webDriver = new EventFiringWebDriver(new FirefoxDriver());
 		}
 		return webDriver;
 	}

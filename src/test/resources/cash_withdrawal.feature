@@ -10,4 +10,4 @@ Feature: Cash withdrawal
 		When I withdraw $100
 		Then $0 should be dispensed
 		And the balance of my account should be $50.00
-		And I should be told that "Insufficient Funds" was the reason
+		##And I should be told that "Insufficient Funds" was the reason
